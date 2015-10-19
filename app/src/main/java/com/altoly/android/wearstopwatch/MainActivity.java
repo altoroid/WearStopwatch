@@ -36,12 +36,14 @@ public class MainActivity extends Activity {
             public void onClick(View view) {
                 if (isPaused) {
                     startButton.setText(getString(R.string.pause));
+                    startButton.setTextColor(Color.RED);
                     startTime = SystemClock.uptimeMillis();
                     customHandler.postDelayed(updateTimerThread, 0);
                     isPaused = false;
                 } else {
                     startButton.setText(getString(R.string.start));
-                            timeText.setTextColor(Color.WHITE);
+                    startButton.setTextColor(Color.WHITE);
+                    timeText.setTextColor(Color.WHITE);
                     timeSwapBuff += timeInMilliseconds;
                     customHandler.removeCallbacks(updateTimerThread);
                     isPaused = true;
@@ -59,6 +61,7 @@ public class MainActivity extends Activity {
                 mins = 0;
                 milliseconds = 0;
                 startButton.setText(getString(R.string.start));
+                startButton.setTextColor(Color.WHITE);
                 customHandler.removeCallbacks(updateTimerThread);
                 timeText.setText(getString(R.string.start_time));
             }
